@@ -1,7 +1,7 @@
 import React from 'react';
 import { BurgerItem } from '../types';
 import { contactData } from '../data/menuData';
-import { Flame, Plus, MessageSquare, Check } from 'lucide-react';
+import { Plus, MessageSquare, Check, Swords } from 'lucide-react';
 
 interface CombosHighlightProps {
   onAddToCart: (item: BurgerItem) => void;
@@ -11,37 +11,35 @@ export const CombosHighlight: React.FC<CombosHighlightProps> = ({ onAddToCart })
   const combos: BurgerItem[] = [
     {
       id: 'combo-pp',
-      name: 'Combo Individual Guerreiro (PP)',
+      name: 'Combo Individual do Guerreiro (PP)',
       price: 25.00,
       category: 'combos',
-      badge: 'Individual Econômico',
+      badge: '🔥 Ração Individual de Combate',
       image: '/assets/burger_bbq_bacon_transparent-CaAKYJFr.png',
-      alt: 'Combo Individual Guerreiro com batata frita e guaracamp',
-      description: '1 Hambúrguer artesanal com blend suculento no pão brioche + porção individual de batata frita coberta com bacon crocante, calabresa fatiada e molho cheddar Polenghi + 1 Guaracamp gelado.',
+      alt: 'Combo Individual com burger na brasa, batatas e guaracamp',
+      description: '1 Hambúrguer artesanal suculento montado na hora com blend na brasa + porção de batatas fritas crocantes com bacon defumado, calabresa chapeada e cheddar cremoso Polenghi + 1 Guaracamp estupidamente gelado.',
       ingredients: [
-        '1 Hambúrguer artesanal',
-        'Batata frita com cheddar e bacon',
-        'Calabresa fatiada',
-        '1 Guaracamp geladinho'
+        '1 Hambúrguer artesanal Angus',
+        'Batata com cheddar, bacon e calabresa',
+        '1 Guaracamp trincando de gelado'
       ],
-      caloriesOrHighlight: 'Completo para 1 pessoa'
+      caloriesOrHighlight: 'Sacia a fome de 1 guerreiro'
     },
     {
       id: 'combo-p',
-      name: 'Combo Banquete de Esparta (Para Dois)',
+      name: 'Banquete de Valhalla para Dois (Combo P)',
       price: 40.00,
       category: 'combos',
-      badge: 'Campeão de Vendas · Casal',
+      badge: '👑 Banquete dos Reis · Para Dois',
       image: '/assets/hero_chicken_fries_transparent-0m7LGxjD.png',
-      alt: 'Combo para dois com 2 burgers e batata reforçada',
-      description: '2 Hambúrgueres artesanais nobres no pão brioche + porção grande de batata frita com bacon crocante em dobro, calabresa artesanal e cheddar cremoso Polenghi + 2 Guaracamps trincando.',
+      alt: 'Banquete para dois com 2 burgers, batata frita reforçada e bebidas',
+      description: '2 Hambúrgueres artesanais nobres no pão brioche amanteigado + 1 tábua grande de batatas estalando de crocantes com chuva dupla de bacon, calabresa fatiada e cheddar Polenghi + 2 Guaracamps bem gelados.',
       ingredients: [
-        '2 Hambúrgueres artesanais',
-        'Porção grande de batata crocante',
-        'Cheddar Polenghi & Bacon em dobro',
-        '2 Guaracamps trincando'
+        '2 Hambúrgueres artesanais na brasa',
+        'Tábua reforçada de batata com bacon e calabresa',
+        '2 Guaracamps estupidamente gelados'
       ],
-      caloriesOrHighlight: 'Serve 2 pessoas com fartura'
+      caloriesOrHighlight: 'Fartura viking para 2 pessoas'
     }
   ];
 
@@ -54,23 +52,23 @@ export const CombosHighlight: React.FC<CombosHighlightProps> = ({ onAddToCart })
   };
 
   const handleDirectWhatsApp = (combo: BurgerItem) => {
-    const msg = `Olá! Gostaria de pedir o *${combo.name}* por R$ ${combo.price.toFixed(2).replace('.', ',')}.`;
+    const msg = `⚔️ *CONVOCANDO O BANQUETE:* Gostaria de pedir o *${combo.name}* (R$ ${combo.price.toFixed(2).replace('.', ',')}) para entrega!`;
     window.open(`https://wa.me/${contactData.phoneClean}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
   };
 
   return (
-    <section id="combos-anchor" className="py-16 sm:py-20 bg-gradient-to-b from-[#090807] via-[#120f0d] to-[#090807] border-b border-neutral-900 select-none">
+    <section id="combos-anchor" className="py-16 sm:py-24 bg-[#0a0705] border-b border-amber-950/60 select-none relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-[10px] font-bold tracking-[0.25em] text-[#f99619] uppercase mb-3">
-            <Flame className="w-3.5 h-3.5 text-[#f99619]" />
-            <span>Mais Sabor por Menos</span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1c140e] border border-amber-700/60 text-amber-300 text-[11px] font-black uppercase tracking-[0.25em] mb-3">
+            <Swords className="w-3.5 h-3.5 text-[#f97316]" />
+            <span>Mais Força por Menos Tributos</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-black uppercase tracking-tight text-white font-display">
-            COMBOS ESPECIAIS COM GUARACAMP
+          <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-white font-display">
+            BANQUETES ÉPICOS COM GUARACAMP
           </h2>
-          <p className="text-xs sm:text-sm text-neutral-400 mt-2">
-            A combinação lendária que todo carioca ama: hambúrguer artesanal no ponto, batata reforçada com cheddar e bacon, e Guaracamp gelado.
+          <p className="text-xs sm:text-sm text-neutral-300 mt-2 font-normal">
+            A tradição inabalável da nossa taverna: hambúrguer artesanal na brasa, tábua de batata com bacon e calabresa, e Guaracamp trincando de gelado.
           </p>
         </div>
 
@@ -80,14 +78,14 @@ export const CombosHighlight: React.FC<CombosHighlightProps> = ({ onAddToCart })
             return (
               <div
                 key={combo.id}
-                className="bg-[#0f0e0d] border border-neutral-800/80 hover:border-[#f99619]/60 rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-black"
+                className="tavern-card rounded-3xl p-6 sm:p-9 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-black"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-amber-500/15 text-[#f99619] border border-amber-500/30">
+                    <span className="text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full spartan-stamp font-spartan">
                       {combo.badge}
                     </span>
-                    <span className="text-2xl sm:text-3xl font-black text-white tabular-nums">
+                    <span className="text-3xl sm:text-4xl font-black text-amber-400 tabular-nums font-display">
                       R$ {combo.price.toFixed(2).replace('.', ',')}
                     </span>
                   </div>
@@ -96,27 +94,27 @@ export const CombosHighlight: React.FC<CombosHighlightProps> = ({ onAddToCart })
                     {combo.name}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed mb-4">
+                  <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed mb-5">
                     {combo.description}
                   </p>
 
-                  <div className="space-y-1.5 mb-6">
+                  <div className="space-y-2 mb-6">
                     {combo.ingredients.map((ing, i) => (
-                      <div key={i} className="flex items-center gap-2 text-xs text-neutral-400">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#f99619]" />
-                        <span>{ing}</span>
+                      <div key={i} className="flex items-center gap-2.5 text-xs text-neutral-200">
+                        <span className="w-2 h-2 rounded-full bg-[#f97316]" />
+                        <span className="font-semibold">{ing}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-neutral-900 flex items-center gap-3">
+                <div className="pt-5 border-t border-amber-950/80 flex items-center gap-3">
                   <button
                     onClick={() => handleAdd(combo)}
-                    className={`flex-1 py-3 px-4 rounded-xl font-black text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-md ${
+                    className={`flex-1 py-3.5 px-4 rounded-xl font-black text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-md ${
                       isAdded
                         ? 'bg-emerald-500 text-neutral-950'
-                        : 'bg-[#f99619] hover:bg-[#ffaa33] text-neutral-950'
+                        : 'bg-gradient-to-r from-[#ea580c] to-[#f97316] hover:from-[#f97316] hover:to-[#fb923c] text-white'
                     }`}
                   >
                     {isAdded ? (
@@ -127,17 +125,17 @@ export const CombosHighlight: React.FC<CombosHighlightProps> = ({ onAddToCart })
                     ) : (
                       <>
                         <Plus className="w-4 h-4 stroke-[3]" />
-                        <span>Adicionar Combo</span>
+                        <span>Devorar Banquete</span>
                       </>
                     )}
                   </button>
 
                   <button
                     onClick={() => handleDirectWhatsApp(combo)}
-                    className="p-3 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 text-neutral-300 hover:text-white transition-colors cursor-pointer"
-                    title="Pedir combo no WhatsApp"
+                    className="p-3.5 rounded-xl bg-[#1b130e] hover:bg-[#271b14] border border-amber-900 text-emerald-400 hover:text-emerald-300 transition-colors cursor-pointer"
+                    title="Pedir banquete no WhatsApp"
                   >
-                    <MessageSquare className="w-4 h-4 text-emerald-400" />
+                    <MessageSquare className="w-4 h-4" />
                   </button>
                 </div>
               </div>
