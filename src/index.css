@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-gold: #f99619;
+    --color-gold-hover: #ffaa33;
+    --color-dark-bg: #080706;
+    --color-dark-card: #0f0e0d;
+    --color-dark-border: rgba(255, 255, 255, 0.08);
+  }
+
+  body {
+    background-color: #080706;
+    color: #f5f5f5;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Custom Typography Helpers */
+.font-display {
+  font-family: 'Bebas Neue', 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: 0.04em;
+}
+
+.font-spartan {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.06em;
+}
+
+/* Smooth Marquee for Ice-cold Drinks */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Flame & Ember Pulsing */
+@keyframes emberGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 15px rgba(249, 150, 25, 0.35));
+  }
+  50% {
+    filter: drop-shadow(0 0 28px rgba(249, 150, 25, 0.65));
+  }
+}
+
+.glow-ember {
+  animation: emberGlow 4s ease-in-out infinite;
+}
+
+/* Subtle Shimmer for High-Conversion Badges */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-badge {
+  background: linear-gradient(90deg, rgba(249, 150, 25, 0.1) 0%, rgba(249, 150, 25, 0.3) 50%, rgba(249, 150, 25, 0.1) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080706;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262422;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f99619;
+}
